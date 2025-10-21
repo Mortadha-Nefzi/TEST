@@ -22,6 +22,7 @@ app.get('/health', async (req, res) => {
 });
 
 app.get('/users', async (req, res) => {
+  console.log('calling users');
   const result = await pool.query('SELECT * FROM users');
   res.json(result.rows);
 });
