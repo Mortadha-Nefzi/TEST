@@ -6,8 +6,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx  # ADD THIS
   rules:
-  - host: apiapp.102.211.209.177.nip.io    # ?? changed
+  - host: apiapp.102.211.209.177.nip.io
     http:
       paths:
       - path: /

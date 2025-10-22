@@ -7,6 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
+  ingressClassName: nginx  # ADD THIS
   rules:
   - host: argocd.102.211.209.177.nip.io
     http:
