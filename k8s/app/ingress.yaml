@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: api.102.211.209.177.nip.io
+  - host: apiapp.102.211.209.177.nip.io    # ?? changed
     http:
       paths:
       - path: /
