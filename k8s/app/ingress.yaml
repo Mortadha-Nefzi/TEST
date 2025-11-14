@@ -3,12 +3,23 @@ kind: Ingress
 metadata:
   name: example-api-ingress
   namespace: default
+  labels:
+    app: example-api
+    environment: dev
+    managed-by: kustomize
+    project: example-api
   annotations:
+    argocd.argoproj.io/tracking-id: example-api:networking.k8s.io/Ingress:default/example-api-ingress
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-cloudflare"
 spec:
-  ingressClassName: nginx  # ADD THIS
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - api.foodifytn.app
+    secretName: api-tls
   rules:
-  - host: apiapp.102.211.209.177.nip.io
+  - host: api.foodifytn.app
     http:
       paths:
       - path: /
